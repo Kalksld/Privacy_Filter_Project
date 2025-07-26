@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Blurring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+         a{
+            text-decoration:none;
+         }
+        h1 {
+            color: #00c2ff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        .btn {
+            background-color: #00c2ff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 15px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #009dc7;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .image-box {
+            border: 2px solid #00c2ff;
+            border-radius: 12px;
+            padding: 10px;
+            background-color: #1e1e1e;
+        }
+
+        .image-box img {
+            max-width: 400px;
+            border-radius: 8px;
+        }
+
+        .label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #00c2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Image Analysis Result</h1>
+
+    {% if uploaded %}
+        <div class="images">
+            <div class="image-box">
+                <img src="{{ url_for('static', filename='uploads/' + original_filename) }}" alt="Original Image">
+                <div class="label">Original Image</div>
+            </div>
+            <div class="image-box">
+                <img src="{{ url_for('static', filename='uploads/' + blurred_filename) }}" alt="Blurred Image">
+                <div class="label">Analysed Image</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <a class="btn" href="{{ url_for('download_file', filename=blurred_filename) }}">Download Image</a>
+            <a class="btn" href="/">Back to Home</a>
+        </div>
+    {% else %}
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required class="btn">
+            <br>
+            <button type="submit" class="btn">Upload & Check</button>
+        </form>
+        <br>
+        <a class="btn" href="/">Back to Home</a>
+    {% endif %}
+
+</body>
+</html>
