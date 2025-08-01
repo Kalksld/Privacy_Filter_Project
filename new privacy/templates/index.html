@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Filter for Social Media</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #00c2ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Navbar */
+    nav.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00c2ff;
+      letter-spacing: 1px;
+      text-align:center;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 16px;
+    }
+
+    .navbar ul a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar ul a:hover {
+      background-color: #00c2ff;
+      color: #000;
+    }
+
+    header {
+      text-align: center;
+      font-size: 2.4rem;
+      padding: 40px 20px 10px;
+      color: #00c2ff;
+      font-weight: 700;
+      text-shadow: 0 0 10px #00c2ff;
+    }
+
+    .description {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 25px 30px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      box-shadow: 0 8px 30px rgba(0, 194, 255, 0.15);
+    }
+
+    .choose-section {
+      margin: 50px auto;
+      max-width: 500px;
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 194, 255, 0.1);
+      border-radius: 18px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 25px rgba(0,194,255,0.12);
+    }
+
+    .choose-section h2 {
+      color: #00c2ff;
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 14px;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      background: linear-gradient(90deg, #00d4ff, #00c2ff);
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,194,255,0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .social-icons a {
+      color: #00c2ff;
+      font-size: 1.8rem;
+      margin: 0 15px;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: white;
+      transform: scale(1.2);
+    }
+.navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00c2ff;
+      letter-spacing: 1px;
+    }
+    .contact-us {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #00c2ff, #00d4ff);
+      border-radius: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .contact-us:hover {
+      background: linear-gradient(90deg, #00d4ff, #00c2ff);
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      header {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        width: 80%;
+        margin: 10px auto;
+      }
+
+      .choose-section h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Privacy Filter</div>
+    <ul>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('features') }}">Features</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact Us</a>
+    </ul>
+  </nav>
+
+  
+
+  <div class="description">
+    <strong>Welcome to the Privacy Filter for Social Media Content! 
+<br><br>
+    You can check both text and images for any sensitive or personal information—like emails, phone numbers, or IDs—and ensure your content is safe to share online.</strong>
+  </div>
+
+  <main>
+    <div class="choose-section">
+      <h2>Select the Type of Content You Want to Analyze</h2>
+      <a class="btn" href="/text"><i class="fas fa-font"></i> &nbsp;<strong>Text</strong></a>
+      <a class="btn" href="/image"><i class="fas fa-image"></i> &nbsp;<strong>Image</strong></a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://wa.me/919959222751" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.snapchat.com/" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+   
+    </div>
+     <footer class="footer">
+  <p>PrivacyFilter © 2025. All rights reserved.</p>
+</footer>
+  </footer>
+ 
+
+</body>
+</html>

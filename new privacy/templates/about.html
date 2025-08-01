@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About - Privacy Filter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      color: white;
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #00c2ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Navbar */
+    nav.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00c2ff;
+      letter-spacing: 1px;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 16px;
+    }
+
+    .navbar ul a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar ul a:hover {
+      background-color: #00c2ff;
+      color: #000;
+    }
+
+    header {
+      text-align: center;
+      font-size: 2.4rem;
+      padding: 40px 20px 10px;
+      color: #00c2ff;
+      font-weight: 700;
+      text-shadow: 0 0 10px #00c2ff;
+    }
+
+    .about-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 40px 50px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,194,255,0.12);
+    }
+
+    .about-container h2 {
+      color: #00c2ff;
+      margin-bottom: 16px;
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.7rem;
+      color: #e0e0e0;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      border-top: 1px solid #00c2ff;
+    }
+
+    .social-icons a {
+      color: #00c2ff;
+      font-size: 1.8rem;
+      margin: 0 15px;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: white;
+      transform: scale(1.2);
+    }
+
+    .contact-us {
+      margin-top: 18px;
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #00c2ff, #00d4ff);
+      border-radius: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .contact-us:hover {
+      background: linear-gradient(90deg, #00d4ff, #00c2ff);
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .about-container {
+        padding: 20px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      header {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Privacy Filter</div>
+    <ul>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('features') }}">Features</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </ul>
+  </nav>
+
+  <header>
+    ABOUT OUR PRIVACY FILTER WEBSITE
+  </header>
+
+  <div class="about-container">
+    <h2>Why We Created This Website</h2>
+    <p>
+      In today’s digital era, accidental sharing of personal information is common. This website was created to provide a safety net for users by scanning their content before posting. Our mission is to promote privacy-first digital habits.
+    </p>
+
+    <h2>What We Provide</h2>
+    <p>
+      Our platform detects personal data in both text and images—such as emails, phone numbers, and ID numbers—highlighting or masking it to ensure it’s safe to publish.
+    </p>
+
+    <h2>How It's Useful</h2>
+    <p>
+      Whether you’re a student, influencer, or everyday user, this tool provides peace of mind by helping you protect your digital identity and reduce exposure risks.
+    </p>
+  </div>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://wa.me/919959222751" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.snapchat.com/" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+    </div>
+    <p>Privacy Filter © 2025. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

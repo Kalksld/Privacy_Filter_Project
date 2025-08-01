@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Features - Privacy Filter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #00c2ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    nav.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00c2ff;
+      letter-spacing: 1px;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 16px;
+    }
+
+    .navbar ul a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar ul a:hover {
+      background-color: #00c2ff;
+      color: #000;
+    }
+
+    .glass-container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #00c2ff;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00c2ff;
+    }
+
+    ul.feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.feature-list li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      padding: 16px 20px;
+      border-left: 5px solid #00c2ff;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    .back-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-btn a {
+      padding: 12px 28px;
+      font-size: 1rem;
+      background: linear-gradient(to right, #00c2ff, #0079a6);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn a:hover {
+      background: linear-gradient(to right, #00d4ff, #00c2ff);
+      color: black;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      ul.feature-list li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Privacy Filter</div>
+    <ul>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('features') }}">Features</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact Us</a>
+    </ul>
+  </nav>
+
+  <div class="glass-container">
+    <h1>Key Features</h1>
+    <ul class="feature-list">
+      <li>Detects and masks private data like emails, phone numbers, and identification numbers.</li>
+      <li>Supports both <strong>Text</strong> and <strong>Image</strong> input formats for filtering.</li>
+      <li>Fast and accurate using regex-based filtering mechanisms.</li>
+      <li>User can copy the masked text and download the masked image for future use.</li>
+      <li>Designed for social media content creators, journalists, and professionals.</li>
+      <li>Your data is not stored – privacy is respected at all times.</li>
+      <li>Image support includes detection of printed personal details (OCR-based).</li>
+    </ul>
+
+    <div class="back-btn">
+     
+    </div>
+  </div>
+
+  <footer>
+    <p>PrivacyFilter © 2025. All rights reserved.</p>
+  </footer>
+</body>
+</html>
